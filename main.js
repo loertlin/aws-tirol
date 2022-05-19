@@ -52,8 +52,8 @@ L.control.scale({
 // Fullscreen control
 L.control.fullscreen().addTo(map);
 
-// Wetterstationslayer beim Laden anzeigen
-overlays.stations.addTo(map);
+// diesen Layer beim Laden anzeigen
+overlays.temperature.addTo(map);
 
 
 // Wetterstationen mit Icons und Popups implementieren
