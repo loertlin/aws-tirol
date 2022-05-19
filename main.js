@@ -78,7 +78,11 @@ let drawStations = function (geojson) {
             <strong>${geoJsonPoint.properties.name}</strong><br> (${geoJsonPoint.geometry.coordinates[2]} m ü. NN)
         
              `;
-
+             let color = getColor(
+                geoJsonPoint.properties.LT,
+                COLORS.temperature
+             );
+            
             return L.marker(latlng, {
                 icon: L.icon({
                     iconUrl: `icons/wifi.png`,
