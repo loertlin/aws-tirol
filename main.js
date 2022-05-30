@@ -76,7 +76,7 @@ let drawStations = function (geojson) {
             //console.log(geoJsonPoint.properties.name);
             let popup = `
             <strong>${geoJsonPoint.properties.name}</strong><br> (${geoJsonPoint.geometry.coordinates[2]} m ü. NN)<br>
-            <li><a href="https://wiski.tirol.gv.at/lawine/grafiken/1100/standard/dreitage/${geoJsonPoint.properties.plot}.png">Link zur Wetterverlaufsgraphik</a></li>        
+            <li><a href="https://wiski.tirol.gv.at/lawine/grafiken/1100/standard/dreitage/${geoJsonPoint.properties.plot}.png" target="Wetterverlaufsgrafik">Link zur Wetterverlaufsgraphik</a></li>        
              `;
              let color = getColor(
                 geoJsonPoint.properties.LT,
