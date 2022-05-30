@@ -229,6 +229,18 @@ let drawHumidity = function (geojson) {
     }).addTo(overlays.humidity);
 }
 
+    // Change default options
+    L.control.rainviewer({ 
+        position: 'bottomleft',
+        nextButtonText: '>',
+        playStopButtonText: 'Play/Stop',
+        prevButtonText: '<',
+        positionSliderLabelText: "Hour:",
+        opacitySliderLabelText: "Opacity:",
+        animationInterval: 500,
+        opacity: 0.5
+    }).addTo(map);
+
 // Wetterstationen
 async function loadData(url) {
     let response = await fetch(url);
