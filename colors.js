@@ -1,6 +1,5 @@
 const COLORS = {
-    temperature: [
-        {
+    temperature: [{
             min: -50,
             max: -25,
             color: "#9f80ff"
@@ -66,8 +65,7 @@ const COLORS = {
             color: "#fa3c96"
         },
     ],
-    snowheight: [
-        {
+    snowheight: [{
             min: 0,
             max: 1,
             color: "#fff"
@@ -113,8 +111,7 @@ const COLORS = {
             color: "#cd0feb"
         },
     ],
-    wind: [
-        {
+    wind: [{
             min: 0,
             max: 5,
             color: "#ffff64"
@@ -150,8 +147,7 @@ const COLORS = {
             color: "#ff3232"
         },
     ],
-    humidity: [
-        {
+    humidity: [{
             min: 0,
             max: 38,
             color: "#EEE"
