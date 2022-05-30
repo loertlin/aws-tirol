@@ -150,7 +150,7 @@ let drawSnowheight = function (geojson) {
             return L.marker(latlng, {
                 icon: L.divIcon({
                     className: "aws-div-icon",
-                    html: `<span style="background-color:${color}">${geoJsonPoint.properties.HS.toFixed(1)}</span>`
+                    html: `<span style="background-color:${color}">${geoJsonPoint.properties.HS.toFixed(1)}m</span>`
                 })
 
             }).bindPopup(popup);
