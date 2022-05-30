@@ -75,8 +75,8 @@ let drawStations = function (geojson) {
         pointToLayer: function (geoJsonPoint, latlng) {
             //console.log(geoJsonPoint.properties.name);
             let popup = `
-            <strong>${geoJsonPoint.properties.name}</strong><br> (${geoJsonPoint.geometry.coordinates[2]} m ü. NN)
-        
+            <strong>${geoJsonPoint.properties.name}</strong><br> (${geoJsonPoint.geometry.coordinates[2]} m ü. NN)<br>
+            <li><a href="https://wiski.tirol.gv.at/lawine/grafiken/1100/standard/dreitage/${geoJsonPoint.properties.plot}.png">Link zur Wetterverlaufsgraphik</a></li>        
              `;
              let color = getColor(
                 geoJsonPoint.properties.LT,
@@ -239,6 +239,7 @@ async function loadData(url) {
     drawSnowheight(geojson);
     drawWind(geojson);
     drawHumidity(geojson);
+
 
 }
 loadData("https://static.avalanche.report/weather_stations/stations.geojson");
