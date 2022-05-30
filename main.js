@@ -194,6 +194,41 @@ let drawWind = function (geojson) {
     }).addTo(overlays.wind);
 }
 
+//relative Luftfeuchtigkeit
+let drawHumidity = function (geojson) {
+
+    L.geoJSON(geojson, {
+        filter: function(geoJsonPoint) {
+            if (geoJsonPoint.properties.RH > 0 && geoJsonPoint.properties.RH < 300) {
+                return true;
+            }
+        },
+        pointToLayer: function (geoJsonPoint, latlng) {
+            //console.log(geoJsonPoint.properties.name);
+            let popup = `
+            <strong>${geoJsonPoint.properties.name}</strong><br> (${geoJsonPoint.geometry.coordinates[2]} m ü. NN)
+        
+             `;
+             let color = getColor(
+                 geoJsonPoint.properties.RH,
+                 COLORS.humidity
+             );
+            //L.marker(latlng).addTo(map);
+            let deg = geoJsonPoint.properties.RH;
+            //console.log(deg);
+
+            return L.marker(latlng, {
+                icon: L.divIcon({
+                    className: "aws-div-icon",
+                    html: `<span style="background-color:${color}">${geoJsonPoint.properties.LT.toFixed(1)}</span>`
+                })
+
+            }).bindPopup(popup);
+        }
+
+    }).addTo(overlays.humidity);
+}
+
 // Wetterstationen
 async function loadData(url) {
     let response = await fetch(url);
@@ -203,6 +238,7 @@ async function loadData(url) {
     drawTemperature(geojson);
     drawSnowheight(geojson);
     drawWind(geojson);
+    drawHumidity(geojson);
 
 }
 loadData("https://static.avalanche.report/weather_stations/stations.geojson");
