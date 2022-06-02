@@ -149,7 +149,7 @@ const COLORS = {
     ],
     humidity: [{
             min: 0,
-            max: 38,
+            max: 30,
             color: "#EEE"
         },
         {
